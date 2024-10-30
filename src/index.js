@@ -1,21 +1,15 @@
 import express from "express"
-import { connectDB } from "./config/db.js"
 import cors from "cors"
+import dotenv from "dotenv"
+import { connectDB } from "./config/db.js"
 import router from "./routes/PacientesRouter.js"
 import routerDoc from "./routes/DoctorRouter.js"
-import dotenv from "dotenv"
+
 
 dotenv.config()
-
 const app = express()
 
-const corsOptions = {
-    origin: '*',
-    credentials: true, // Si necesitas enviar cookies o autenticación basada en sesiones
-};
-
-app.use(cors(corsOptions));
-
+app.use(cors());
 app.use(express.json())
 
 
