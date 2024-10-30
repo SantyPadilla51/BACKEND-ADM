@@ -60,7 +60,6 @@ const confirmarCuenta = async (req, res) => {
 };
 
 const iniciarSesion = async (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*')
     const { email, password } = req.body;
 
     // Comprobar si el usuario existe
