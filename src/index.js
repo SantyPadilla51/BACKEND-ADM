@@ -9,13 +9,13 @@ dotenv.config()
 
 const app = express()
 
-const allowedOrigins = ['https://front-end-adm-pacientes.vercel.app'];
-
-app.use(cors({
-    origin: allowedOrigins,
+const corsOptions = {
+    origin: 'https://front-end-adm-pacientes.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true, // Si necesitas enviar cookies
-}));
+    credentials: true, // Si necesitas enviar cookies o autenticación basada en sesiones
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json())
 
