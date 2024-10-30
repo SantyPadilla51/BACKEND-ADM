@@ -9,7 +9,9 @@ import routerDoc from "./routes/DoctorRouter.js"
 dotenv.config()
 const app = express()
 
-app.use(cors());
+app.use(cors({
+    origin: ["https://front-end-adm-pacientes.vercel.app/"], // Aquí debes agregar el dominio o IP de tu front-end
+}));
 app.use(express.json())
 
 
