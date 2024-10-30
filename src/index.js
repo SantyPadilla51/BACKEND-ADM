@@ -10,8 +10,7 @@ dotenv.config()
 const app = express()
 
 const corsOptions = {
-    origin: 'https://front-end-adm-pacientes.vercel.app',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    origin: '*',
     credentials: true, // Si necesitas enviar cookies o autenticación basada en sesiones
 };
 
