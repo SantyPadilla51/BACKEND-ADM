@@ -8,7 +8,15 @@ import dotenv from "dotenv"
 dotenv.config()
 
 const app = express()
-app.use(cors())
+
+const corsOptions = {
+    origin: 'https://front-end-adm-pacientes.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true, // Si necesitas enviar cookies o autenticación basada en sesiones
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json())
 
 
