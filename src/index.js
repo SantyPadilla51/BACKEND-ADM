@@ -14,6 +14,8 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true, // Si necesitas enviar cookies o encabezados de autenticación
 }));
+
+app.options('*', cors());
 app.use(express.json())
 
 
