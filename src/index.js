@@ -9,8 +9,11 @@ import routerDoc from "./routes/DoctorRouter.js"
 dotenv.config()
 const app = express()
 
-app.use(cors());
-app.options('*', cors())
+app.use(cors({
+    origin: 'https://front-end-adm-pacientes.vercel.app', // URL de tu frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true, // Si necesitas enviar cookies o encabezados de autenticación
+}));
 app.use(express.json())
 
 
