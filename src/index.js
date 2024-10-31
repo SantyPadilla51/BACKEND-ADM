@@ -12,6 +12,7 @@ const app = express()
 app.use(cors({
     origin: "*", // Aquí debes agregar el dominio o IP de tu front-end
 }));
+app.options('*', cors())
 app.use(express.json())
 
 
