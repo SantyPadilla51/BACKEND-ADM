@@ -9,14 +9,7 @@ import routerDoc from "./routes/DoctorRouter.js"
 dotenv.config()
 const app = express()
 
-app.use(cors({
-    origin: '*', // Permite cualquier origen (solo para pruebas)
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-}));
-
-app.options('*', cors());
+app.use(cors());
 app.use(express.json())
 
 
