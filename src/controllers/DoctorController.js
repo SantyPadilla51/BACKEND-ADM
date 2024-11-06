@@ -27,7 +27,7 @@ const crearUsuario = async (req, res) => {
                 token: doctorGuardado.token,
             })
 
-            res.json({ ok: true, msg: "Usuario registrado correctamente" })
+            res.json({ ok: true, msg: "Revisa tu correo para confirmar tu cuenta" })
 
         } catch (error) {
             res.json({ msg: 'No se pudo crear el usuario' })
@@ -96,8 +96,6 @@ const iniciarSesion = async (req, res) => {
             msg: "Password Incorrecto"
         });
     }
-
-
 }
 
 const mostrarPefil = async (req, res) => {
@@ -108,6 +106,7 @@ const mostrarPefil = async (req, res) => {
 
 const recuperarPassword = async (req, res) => {
     //Recuperar el usuario por email
+    
     const { email } = req.body;
 
     const usuario = await Doctor.findOne({
@@ -168,8 +167,13 @@ const nuevoPassword = async (req, res) => {
         usuario.token = null;
         usuario.password = password;
 
-        await usuario.save();
-        res.json({ msg: "Contraseña cambiada correctamente" });
+        const passwordActualizado = await usuario.save();
+
+        if (passwordActualizado) {
+            return res.json({ 
+                msg: "correcto" 
+            });
+        }
     } catch (error) {
         res.json({ msg: "Token no valido" })
     }

@@ -36,6 +36,10 @@ const Paciente = db.define('pacientes', {
         type: Sequelize.TEXT,
         allowNull: false
     },
+    medicacion: {
+        type: Sequelize.TEXT,
+        allowNull: true
+    },
     doctorId: {
         type: Sequelize.INTEGER,
         allowNull: false,
